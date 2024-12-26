@@ -9,7 +9,11 @@ export async function sendMessage(req: Request, res: Response) {
 
     res.status(200).json({ response });
   } catch (error) {
-    console.error("Error generating content:", error);
-    res.status(500).json({ error: (error as Error).message });
+    res
+      .status(500)
+      .json({
+        message: "Error generating content",
+        error: (error as Error).message,
+      });
   }
 }

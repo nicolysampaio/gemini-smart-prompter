@@ -2,9 +2,6 @@ import express, { Application } from "express";
 import routes from "./routes";
 import databaseConnection from "./config/db.config";
 
-const app: Application = express();
-routes(app);
-
 async function connectDatabase() {
   try {
     await databaseConnection();
@@ -16,5 +13,10 @@ async function connectDatabase() {
 }
 
 connectDatabase();
+
+const app: Application = express();
+routes(app);
+
+app.use(express.json());
 
 export { app };
