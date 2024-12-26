@@ -2,7 +2,7 @@
   "name": "gemini-smart-prompter",
   "version": "1.0.0",
   "description": "Gerenciador de templates de prompt com integração à API Gemini do Google",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/index.ts"
   },
@@ -10,8 +10,10 @@
   "author": "",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@types/mongoose": "^5.11.96",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mongoose": "^7.3.4"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
