@@ -1,4 +1,4 @@
-import { TemplateInterface } from "./../interfaces/template.interface";
+import { TemplateInterface } from "../interfaces/template.interface";
 import Template from "../models/template.model";
 
 class TemplateService {
