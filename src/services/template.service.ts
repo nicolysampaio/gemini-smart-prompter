@@ -2,7 +2,7 @@ import { TemplateInterface } from "../interfaces/template.interface";
 import Template from "../models/template.model";
 
 class TemplateService {
-  static getAll = async (): Promise<TemplateInterface[]> => {
+  static getAll = async (): Promise<TemplateInterface[] | null> => {
     return await Template.find({});
   };
 
@@ -10,7 +10,7 @@ class TemplateService {
     return await Template.findById(id);
   };
 
-  static create = async (template: TemplateInterface) => {
+  static create = async (template: TemplateInterface): Promise<TemplateInterface | null> => {
     return await Template.create(template);
   };
 
@@ -21,7 +21,7 @@ class TemplateService {
     return await Template.findByIdAndUpdate(id, template, { new: true });
   };
 
-  static delete = async (id: string) => {
+  static delete = async (id: string): Promise<TemplateInterface | null> => {
     return await Template.findByIdAndDelete(id);
   };
 }
