@@ -6,7 +6,7 @@ API for managing prompt templates with integration to Google's Gemini API!
 
 - [x] Day 01: Basic application setup + Gemini integration
 - [x] Day 02: Save prompts and set up the test environment
-- [ ] Day 03: Creating CRUD for categories and unit tests with mocks
+- [x] Day 03: Creating CRUD for categories and unit tests with mocks
 - [ ] Day 04: Writing integration tests
 - [ ] Day 05: Categorizing prompts
 - [ ] Day 06: Adding Swagger documentation
@@ -29,3 +29,12 @@ API for managing prompt templates with integration to Google's Gemini API!
 - Configured Jest for testing with `jest.config.js`.
 - Added MongoDB in-memory server for testing.
 - Added unit tests for `Template` model in `test/models/template.model.test.ts`.
+
+## Day 3
+
+- Created `CategoryService` with methods for CRUD operations.
+- Created `CategoryController` to handle HTTP requests for categories.
+- Set up routes for category operations in `src/routes/category.routes.ts`.
+- Added unit tests for `Category` model in `test/models/category.model.test.ts`.
+- Added unit tests for `TemplateService` in `test/services/template.services.test.ts` with mocks.
+- Added unit tests for `CategoryService` in `test/services/category.services.test.ts` with mocks.
