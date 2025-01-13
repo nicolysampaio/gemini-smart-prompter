@@ -33,7 +33,7 @@ class TemplateController {
       const template = await TemplateService.create(req.body);
 
       res
-        .status(200)
+        .status(201)
         .json({ message: "Template created with success!", template });
     } catch (error) {
       res.status(500).json({
