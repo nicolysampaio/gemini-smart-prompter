@@ -70,6 +70,38 @@ class TemplateController {
       });
     }
   }
+
+  static async addCategory(req: Request, res: Response) {
+    try {
+      const { templateId, categoryId } = req.params;
+      const template = await TemplateService.categorize(templateId, categoryId);
+
+      res
+        .status(201)
+        .json({ message: "Category added to template with success!", template });
+    } catch (error) {
+      res.status(500).json({
+        message: "Error adding category to template",
+        error: (error as Error).message,
+      });
+    }
+  }
+
+  static async removeCategory(req: Request, res: Response) {
+    try {
+      const { templateId, categoryId } = req.params;
+      const template = await TemplateService.decategorize(templateId, categoryId);
+
+      res
+        .status(200)
+        .json({ message: "Category removed from template with success!", template });
+    } catch (error) {
+      res.status(500).json({
+        message: "Error removing category from template",
+        error: (error as Error).message,
+      });
+    }
+  }
 }
 
 export default TemplateController;
