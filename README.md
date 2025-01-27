@@ -44,3 +44,12 @@ API for managing prompt templates with integration to Google's Gemini API!
 - Wrote integration tests for `Template` and `Category` routes.
 - Used `supertest` to simulate HTTP requests and validate responses.
 - Ensured all CRUD operations are working correctly through tests.
+
+## Day 5
+
+- Implemented categorization of prompts.
+- Added methods in `TemplateService` to categorize and decategorize prompts.
+- Updated `TemplateController` to handle categorization requests.
+- Added routes for categorizing prompts in `src/routes/template.routes.ts`.
+- Added unit tests for categorization methods in `test/services/template.services.test.ts`.
+- Added integration tests for categorization endpoints.
