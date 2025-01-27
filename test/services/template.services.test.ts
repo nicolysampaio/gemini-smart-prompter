@@ -3,8 +3,16 @@ import TemplateService from "../../src/services/template.service";
 import { TemplateInterface } from "../../src/interfaces/template.interface";
 
 jest.mock("../../src/models/template.model", () => ({
-  find: jest.fn(),
-  findById: jest.fn(),
+  find: jest.fn(() => ({
+    populate: jest.fn(() => ({
+      exec: jest.fn(),
+    })),
+  })),
+  findById: jest.fn(() => ({
+    populate: jest.fn(() => ({
+      exec: jest.fn(),
+    })),
+  })),
   create: jest.fn(),
   findByIdAndUpdate: jest.fn(),
   findByIdAndDelete: jest.fn(),
@@ -23,8 +31,12 @@ describe("Template business logic and database interaction", () => {
 
   describe("Fetch Template", () => {
     it("should return an empty array if no templates exist", async () => {
-      (Template.find as jest.Mock).mockResolvedValue([]);
-
+      (Template.find as jest.Mock).mockImplementation(() => ({
+        populate: jest.fn(() => ({
+          exec: jest.fn().mockResolvedValue([]),
+        })),
+      }));
+      
       const templates = await TemplateService.getAll();
 
       expect(templates).toEqual([]);
@@ -39,7 +51,11 @@ describe("Template business logic and database interaction", () => {
         },
       ];
 
-      (Template.find as jest.Mock).mockResolvedValue(mockTemplates);
+      (Template.find as jest.Mock).mockReturnValue({
+        populate: jest.fn().mockReturnValue({
+          exec: jest.fn().mockResolvedValue(mockTemplates),
+        }),
+      });
 
       const templates = await TemplateService.getAll();
 
