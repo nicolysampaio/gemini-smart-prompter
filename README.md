@@ -8,7 +8,7 @@ API for managing prompt templates with integration to Google's Gemini API!
 - [x] Day 02: Save prompts and set up the test environment
 - [x] Day 03: Creating CRUD for categories and unit tests with mocks
 - [x] Day 04: Writing integration tests
-- [ ] Day 05: Categorizing prompts
+- [x] Day 05: Categorizing prompts
 - [ ] Day 06: Adding Swagger documentation
 - [ ] Day 07: Continuous integration with GitHub Actions
 
